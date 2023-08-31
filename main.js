@@ -8,8 +8,8 @@ leftWristX = 0;
 function setup()
 {
     video = createCapture(VIDEO);
-    video.size(450, 400);
-    canvas = createCanvas(450, 400);
+    video.size(350, 300);
+    canvas = createCanvas(550, 500);
     canvas.position(560, 125);
 
     poseNet = ml5.poseNet(video, modelLoaded);
@@ -30,11 +30,11 @@ function gotPoses(results)
         noseY = results[0].pose.nose.y + 50;
         console.log("noseX = " + noseX +" noseY = " + noseY);
         
-        leftWristX = results[0].pose.leftWrist.X;
-        rightWristX = results[0].pose.rightWrist.X; 
+        leftWristX = results[0].pose.leftWrist.x;
+        rightWristX = results[0].pose.rightWrist.x; 
         difference = floor(leftWristX - rightWristX);
 
-        console.log("leftwristX = " + leftWristX + " rightwristX = "+ rightWristX + "difference = " + difference);
+        console.log("leftWristX = " + leftWristX + " rightWristX = "+ rightWristX + "difference = " + difference);
     }
 }
 
